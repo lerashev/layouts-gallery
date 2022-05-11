@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="index.css" />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="data:image/png;base64,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
+"
+        />
+        <title>Image Gallery - Grayscale</title>
+    </head>
+    <body>
+        <header id="main-header">
+            <h1 id="main-title">Image Gallery</h1>
+            <span id="main-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur.
+            </span>
+        </header>
+        <div id="main-container">
+            <div id="gallery-container">
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/1.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/2.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/3.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/4.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/5.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/6.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/7.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/8.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/9.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/10.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/11.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/12.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/13.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/14.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/15.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/16.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/17.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/18.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/19.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/20.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/21.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/22.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/23.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/24.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/25.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/26.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/27.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/28.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/29.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/30.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/31.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/32.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/33.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/34.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/35.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/36.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/37.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/38.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/39.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/40.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/41.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/42.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/43.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/44.jpg"
+                    />
+                </div>
+                <div class="grid-img-container">
+                    <img
+                        loading="lazy"
+                        class="grid-img"
+                        src="./static/img/45.jpg"
+                    />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

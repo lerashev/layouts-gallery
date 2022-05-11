@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Updock&display=swap");
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+#main-header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6rem;
+}
+
+#main-title {
+    font-family: "Updock";
+    font-size: 4rem;
+    color: rgb(155, 74, 221);
+    text-shadow: -1px 29px 5px rgba(108, 81, 185, 0.48);
+}
+
+#main-text {
+    font-family: "Montserrat";
+    font-size: 1rem;
+}
+
+#main-container {
+    margin: 2rem 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+#gallery-container {
+    --gap: 0.5rem;
+    --img-min-width: 240px;
+    --max-width: calc(var(--img-min-width) * 5) + (4 * var(--gap));
+    --narrow-screen-width: calc(100% - 6rem);
+
+    width: min(var(--narrow-screen-width), var(--max-width));
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(auto-fit, minmax(var(--img-min-width), 1fr));
+    /*  repeat() function allows you to repeat columns as many times as needed
+        minmax() --> defines a size range >= min and =< max; used with grid css 
+        funtion taking 2 paramenters, min and max; can be length, %, flex (fr), max-content, min-content or auto
+        flex (fr) --> takes a share of the remaining space in proportion
+         
+        auto-fill --> fill that row up! Add as many columns as you can. If you have enough space to add a column, add it. I don’t care if it’s empty or not, it’s still occupying space in the row as if it were filled.
+        auto-fit -->  make whatever columns you have fit into the available space. Expand them as much as you need to fit the row size. Empty columns must not occupy any space.
+    */
+}
+.grid-img-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+}
+.grid-img {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    transition: transform 0.3s ease-out;
+    pointer-events: none;
+    filter: grayscale(80%);
+}
+
+.grid-img-container:hover .grid-img {
+    z-index: 1;
+    transform: scale(1.2);
+    aspect-ratio: unset;
+    filter: unset;
+}
